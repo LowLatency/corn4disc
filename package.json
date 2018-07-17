@@ -1,0 +1,15 @@
+{
+  "name": "corn4disc",
+  "version": "1.0.0",
+  "description": "corn4disc is the best discord client ever",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "corn4life",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.5"
+  }
+}
