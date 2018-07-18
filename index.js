@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const Discord = require('discord.js');
 const { token } = require('./secrets.js');
+const {ipcMain} = require('electron');
 
 function createWindow() {
     // Create the browser window.
@@ -11,7 +12,7 @@ function createWindow() {
     win.webContents.openDevTools();
     
     return win;
-};
+}
 
 function main()
 {
@@ -25,14 +26,14 @@ function main()
     client.login(token);
     
     client.on('message', msg => {
-      if (msg.content === 'ping') {
-        msg.reply('Pong!');
-      }
+ 
+      win.webContents.send('discord-message', msg.content);
+      
     });
     
     win.on('closed', () => {
         client.destroy();
     });
-};
+}
 
 app.on('ready', main);
